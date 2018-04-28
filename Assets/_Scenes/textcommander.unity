@@ -142,7 +142,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptPrefab: {fileID: 1303693910239342, guid: 23e190b5c7735a54d84d37728223a679,
     type: 2}
+  gpOutputPrefab: {fileID: 1491339320625982, guid: 01419b6b6df885a4da3b8d2494e49f72,
+    type: 2}
   cmdContent: {fileID: 1518076876}
+  availableCommands:
+  - HELP
+  - MOVE
+  - UP
+  - JUMP
+  - DOWN
+  - STOP
 --- !u!4 &131148774
 Transform:
   m_ObjectHideFlags: 0
@@ -761,7 +770,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -10
+  m_Spacing: -5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
