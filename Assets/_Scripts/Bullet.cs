@@ -11,11 +11,17 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         t = GetComponent<RectTransform>();
+        Destroy(gameObject, 2f);
     }
 
     // Update is called once per frame
     void Update()
     {
         t.Translate(Vector3.right * force);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
     }
 }

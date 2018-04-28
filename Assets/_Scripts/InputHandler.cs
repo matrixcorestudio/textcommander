@@ -49,4 +49,24 @@ public class InputHandler : SingletonPattern<InputHandler>
             shoot.Execute(Player);
         }
     }
+
+    public void MoveForward()
+    {
+        forward.Execute(Player);
+    }
+
+    public void Stop()
+    {
+        stop.Execute(Player);
+    }
+
+    public void Jump()
+    {
+        jump.Execute(Player);
+    }
+
+    public void Shoot()
+    {
+        shoot.Execute(Player);
+    }
 }
