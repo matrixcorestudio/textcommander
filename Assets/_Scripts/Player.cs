@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int health = 3;
+
     public GroundMover GroundMover;
     public Vector2 JumpForce;
     public Transform Parent;
-
     public GameObject Bullet;
     public GameObject BulletSpawner;
+
+    public delegate void KillPlayer();
+    public event KillPlayer OnPlayerKilled;
 
     private Rigidbody2D rb2D;
     private bool jumping = false;
@@ -18,6 +22,18 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            //DIE
+            if (OnPlayerKilled != null)
+            {
+                OnPlayerKilled();
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
