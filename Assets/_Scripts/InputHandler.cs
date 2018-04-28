@@ -8,6 +8,7 @@ public class InputHandler : SingletonPattern<InputHandler>
 
     private CommandPattern forward;
     private CommandPattern stop;
+    private CommandPattern jump;
 
 
     // Use this for initialization
@@ -15,6 +16,7 @@ public class InputHandler : SingletonPattern<InputHandler>
     {
         forward = new MoveForwardCommand();
         stop = new StopCommand();
+        jump = new JumpCommand();
     }
 
     // Update is called once per frame
@@ -33,6 +35,11 @@ public class InputHandler : SingletonPattern<InputHandler>
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             stop.Execute(Player);
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            jump.Execute(Player);
         }
     }
 }

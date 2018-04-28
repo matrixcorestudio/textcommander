@@ -19,3 +19,12 @@ public class StopCommand : CommandPattern
         Debug.Log("Stop moving");
     }
 }
+
+public class JumpCommand : CommandPattern
+{
+    public override void Execute(Player player)
+    {
+        player.Jump();
+        Debug.Log("Jump");
+    }
+}
