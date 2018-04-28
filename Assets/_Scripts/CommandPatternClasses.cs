@@ -28,3 +28,12 @@ public class JumpCommand : CommandPattern
         Debug.Log("Jump");
     }
 }
+
+public class ShootCommand : CommandPattern
+{
+    public override void Execute(Player player)
+    {
+        player.Shoot();
+        Debug.Log("Shooting");
+    }
+}

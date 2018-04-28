@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 {
     public GroundMover GroundMover;
     public Vector2 JumpForce;
+    public Transform Parent;
+    public GameObject Bullet;
+    public GameObject BulletSpawner;
 
     private Rigidbody2D rb2D;
     private bool jumping = false;
@@ -44,5 +47,10 @@ public class Player : MonoBehaviour
             jumping = true;
             rb2D.AddForce(JumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    public void Shoot()
+    {
+        Instantiate(Bullet, BulletSpawner.transform.position, Quaternion.identity, Parent);
     }
 }
