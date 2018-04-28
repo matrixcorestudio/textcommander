@@ -7,12 +7,12 @@ public class Player : MonoBehaviour
     public GroundMover GroundMover;
     public Vector2 JumpForce;
     public Transform Parent;
+
     public GameObject Bullet;
     public GameObject BulletSpawner;
 
     private Rigidbody2D rb2D;
     private bool jumping = false;
-    private bool doubleJumping = false;
 
     // Use this for initialization
     private void Start()
@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Touched floor, reset jumping");
             jumping = false;
-            doubleJumping = false;
         }
     }
 

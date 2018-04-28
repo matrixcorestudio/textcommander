@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         t = GetComponent<RectTransform>();
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 3f);
     }
 
     // Update is called once per frame
