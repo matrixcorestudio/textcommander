@@ -9,7 +9,7 @@ public class CommandPrompt : MonoBehaviour
     public GameObject gpOutputPrefab;
 
     public Transform cmdContent;
-    private static string HELP_MESSAGE = "Ayuda";
+    private static string HELP_MESSAGE = "Escribe el comando list para enlistar los comandos disponibles";
     private static string UNK_MESSAGE = "Comando no identificado";
     private InputHandler inputHandler;
     private string lastUsed;
@@ -24,10 +24,10 @@ public class CommandPrompt : MonoBehaviour
     {
         inputHandler.Player.OnPlayerKilled += (() =>
         {
-            PrintToCmd("You lose!");
+            PrintToCmd("Perdiste!");
             GameManager.Instance.ReloadGame();
         });
-        inputHandler.Player.OnWin += (() => PrintToCmd("You won!"));
+        inputHandler.Player.OnWin += (() => PrintToCmd("Ganaste!"));
     }
 
     public void PromptEntry()
