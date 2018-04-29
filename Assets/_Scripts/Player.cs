@@ -61,6 +61,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void MoveForward() { }
+    public void Stop() { }
+
     public void Jump()
     {
         if (!jumping)
@@ -73,7 +76,7 @@ public class Player : MonoBehaviour
     public void Shoot()
     {
         if (ammo > 0)
-        {            
+        {
             --ammo;
             Instantiate(Bullet, BulletSpawner.transform.position, Quaternion.identity, Parent);
         }
