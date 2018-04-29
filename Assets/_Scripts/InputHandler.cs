@@ -31,15 +31,15 @@ public class InputHandler : SingletonPattern<InputHandler>
 
     private void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            forward.Execute(Player);
-        }
+     //   if (Input.GetKeyDown(KeyCode.RightArrow))
+       // {
+         //   forward.Execute(Player);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            stop.Execute(Player);
-        }
+       // if (Input.GetKeyDown(KeyCode.DownArrow))
+        //{
+          //  stop.Execute(Player);
+        //}
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {

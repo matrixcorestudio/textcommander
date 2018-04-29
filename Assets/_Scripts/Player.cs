@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public int slashes = 0;
     public bool slashing = false;
 
-    public GroundMover GroundMover;
+    //public GroundMover GroundMover;
     public Vector2 JumpForce;
     public Transform Parent;
     public GameObject Bullet;
@@ -51,12 +51,12 @@ public class Player : MonoBehaviour
 
     public void MoveForward()
     {
-        GroundMover.StartMoving();
+        //GroundMover.StartMoving();
     }
 
     public void Stop()
     {
-        GroundMover.StopMoving();
+        //GroundMover.StopMoving();
     }
 
     public void Jump()
