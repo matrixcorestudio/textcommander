@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
             {
                 OnPlayerKilled();
             }
+            Debug.Log("You die!");
         }
     }
 

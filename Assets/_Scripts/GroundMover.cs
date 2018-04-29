@@ -18,10 +18,6 @@ public class GroundMover : MonoBehaviour
             isWorldMoving = true;
             StartCoroutine(ScrollWorldRoutine(Vector3.left));
         }
-        else
-        {
-            Debug.Log("ZA WARUDO is already moving, cannot move again!");
-        }
     }
 
     public void StopMoving()
@@ -32,18 +28,12 @@ public class GroundMover : MonoBehaviour
             isWorldMoving = false;
             StopCoroutine(ScrollWorldRoutine(Vector3.left));
         }
-        else
-        {
-            Debug.Log("ZA WARUDO is not moving already!");
-        }
     }
 
 	IEnumerator ScrollWorldRoutine(Vector3 dir)
 	{
-        Debug.Log("Starting movement routine");
 		while (isWorldMoving)
 		{
-            Debug.Log("World is moving...");
             groundPlane.position += dir;
 			yield return null;
 			//yield return new WaitForSeconds (moveTime);

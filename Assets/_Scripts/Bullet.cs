@@ -19,8 +19,8 @@ public class Bullet : MonoBehaviour
     {
         t.Translate(Vector3.right * force);
     }
-
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject);
     }
