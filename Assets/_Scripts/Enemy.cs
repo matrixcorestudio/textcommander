@@ -9,15 +9,9 @@ public class Enemy : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
-        t = GetComponent<RectTransform>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //t.Translate(Vector3.left * force);
-    }
+	{
+		t = GetComponent<RectTransform> ();
+	}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

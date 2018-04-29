@@ -12,8 +12,6 @@ public class InputHandler : SingletonPattern<InputHandler>
     private CommandPattern shoot;
     private CommandPattern slash;
 
-
-    // Use this for initialization
     void Start()
     {
         forward = new MoveForwardCommand();
@@ -21,40 +19,6 @@ public class InputHandler : SingletonPattern<InputHandler>
         jump = new JumpCommand();
         shoot = new ShootCommand();
         slash = new SlashCommand();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        HandleInput();
-    }
-
-    private void HandleInput()
-    {
-     //   if (Input.GetKeyDown(KeyCode.RightArrow))
-       // {
-         //   forward.Execute(Player);
-        //}
-
-       // if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-          //  stop.Execute(Player);
-        //}
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            jump.Execute(Player);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            shoot.Execute(Player);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            slash.Execute(Player);
-        }
     }
 
     public void MoveForward()

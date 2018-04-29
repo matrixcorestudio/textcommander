@@ -9,20 +9,34 @@ public class CommandPrompt : MonoBehaviour
 	public GameObject gpOutputPrefab;
 
 	public Transform cmdContent;
-	public List<string> availableCommands = new List<string>();
-
 	private static string HELP_MESSAGE = "Ayuda";
 	private static string UNK_MESSAGE = "Comando no identificado";
+	private InputHandler inputHandler;
+	private string lastUsed;
+	private PromptLine currentLine;
 
+	void Awake()
+	{
+		inputHandler = InputHandler.Instance;
+	}
 
 	public void PromptEntry()
 	{
-		Instantiate (promptPrefab, cmdContent);
+		GameObject go = Instantiate (promptPrefab, cmdContent) as GameObject;
+		currentLine = go.GetComponent<PromptLine> ();
+	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown (KeyCode.UpArrow)) 
+		{
+			currentLine.field.text = lastUsed;
+		}	
 	}
 
 	public void ExecuteCommand(string command)
 	{
-		switch(command)
+		switch(command.ToLower())
 		{
 		case "help":
 			PrintToCmd (HELP_MESSAGE);
@@ -30,10 +44,21 @@ public class CommandPrompt : MonoBehaviour
 		case "list":
 			PrintToCmd (ListCommands());
 			break;
+		case "up":
+		case "jump":
+			inputHandler.Jump ();
+			break;
+		case "slash":
+			inputHandler.Slash ();
+			break;
+		case "shoot":
+			inputHandler.Shoot ();
+			break;
 		default:
 			PrintToCmd (UNK_MESSAGE);
 			break;
 		}
+		lastUsed = command.ToLower ();
 	}
 
 	void PrintToCmd(string message)
@@ -45,7 +70,7 @@ public class CommandPrompt : MonoBehaviour
 	string ListCommands()
 	{
 		string message = "Comandos disponibles:\n ";
-		foreach (var item in availableCommands) 
+		foreach (var item in GameManager.Instance.availableCommands) 
 		{
 			message += item+"       ";
 		}

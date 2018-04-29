@@ -7,7 +7,7 @@ public class PromptLine : MonoBehaviour
 {
 	[SerializeField] Text bashText;
 	private CommandPrompt cmd;
-	private InputField field;
+	public InputField field;
 	void Awake()
 	{
 		cmd = FindObjectOfType<CommandPrompt>();
