@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private int force = 3;
+    public int moveForce = 3;
+    public int damage = 2;
     private Transform t;
 
     // Use this for initialization
@@ -17,7 +18,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        t.Translate(Vector3.right * force);
+        t.Translate(Vector3.right * moveForce);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +27,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            collision.gameObject.GetComponent<Boss>().health -= damage;
+        }
+
         Destroy(gameObject);
     }
 }
