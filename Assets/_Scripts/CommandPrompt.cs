@@ -24,8 +24,8 @@ public class CommandPrompt : MonoBehaviour
     {
         inputHandler.Player.OnPlayerKilled += (() =>
         {
-            PrintToCmd("Perdiste!");
-            GameManager.Instance.ReloadGame();
+            //PrintToCmd("Perdiste!");
+            //GameManager.Instance.ReloadGame();
         });
         inputHandler.Player.OnWin += (() => PrintToCmd("Ganaste!"));
     }

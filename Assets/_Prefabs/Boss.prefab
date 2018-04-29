@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 222155288580113268}
   - component: {fileID: 114157585472973472}
   - component: {fileID: 61040159277159478}
+  - component: {fileID: 114483148922928860}
   m_Layer: 5
   m_Name: Boss
   m_TagString: Boss
@@ -87,6 +88,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Boss
+--- !u!114 &114483148922928860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847917619192556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b23d1c78d6c5443b02499c6227f2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  destroyTime: 120
 --- !u!222 &222155288580113268
 CanvasRenderer:
   m_ObjectHideFlags: 1
