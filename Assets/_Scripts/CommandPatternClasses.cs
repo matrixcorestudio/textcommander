@@ -37,3 +37,12 @@ public class ShootCommand : CommandPattern
         Debug.Log("Shooting");
     }
 }
+
+public class SlashCommand : CommandPattern
+{
+    public override void Execute(Player player)
+    {
+        player.Slash();
+        Debug.Log("Slashing");
+    }
+}

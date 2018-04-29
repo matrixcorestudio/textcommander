@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health = 3;
+    public int ammo = 0;
+    public int slashes = 0;
+    public bool slashing = false;
 
     public GroundMover GroundMover;
     public Vector2 JumpForce;
@@ -67,6 +70,19 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(Bullet, BulletSpawner.transform.position, Quaternion.identity, Parent);
+        if (ammo > 0)
+        {            
+            --ammo;
+            Instantiate(Bullet, BulletSpawner.transform.position, Quaternion.identity, Parent);
+        }
+    }
+
+    public void Slash()
+    {
+        if (slashes > 0 && !slashing)
+        {
+            --slashes;
+            slashing = true;
+        }
     }
 }

@@ -10,6 +10,7 @@ public class InputHandler : SingletonPattern<InputHandler>
     private CommandPattern stop;
     private CommandPattern jump;
     private CommandPattern shoot;
+    private CommandPattern slash;
 
 
     // Use this for initialization
@@ -19,6 +20,7 @@ public class InputHandler : SingletonPattern<InputHandler>
         stop = new StopCommand();
         jump = new JumpCommand();
         shoot = new ShootCommand();
+        slash = new SlashCommand();
     }
 
     // Update is called once per frame
@@ -48,6 +50,11 @@ public class InputHandler : SingletonPattern<InputHandler>
         {
             shoot.Execute(Player);
         }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            slash.Execute(Player);
+        }
     }
 
     public void MoveForward()
@@ -68,5 +75,10 @@ public class InputHandler : SingletonPattern<InputHandler>
     public void Shoot()
     {
         shoot.Execute(Player);
+    }
+
+    public void Slash()
+    {
+        slash.Execute(Player);
     }
 }

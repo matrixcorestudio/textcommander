@@ -16,14 +16,23 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        t.Translate(Vector3.left * force);
+        //t.Translate(Vector3.left * force);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            --collision.gameObject.GetComponent<Player>().health;
+            var player = collision.gameObject.GetComponent<Player>();
+            if (player.slashing)
+            {
+                player.slashing = false;
+                Destroy(gameObject);
+            }
+            else
+            {
+                --player.health;
+            }
         }
     }
 }
