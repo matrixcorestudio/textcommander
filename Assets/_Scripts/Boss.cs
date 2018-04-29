@@ -18,6 +18,7 @@ public class Boss : MonoBehaviour
     {
         if (health <= 0)
         {
+            player.BossKilled();
             Destroy(gameObject);
         }
     }

@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public delegate void KillPlayer();
     public event KillPlayer OnPlayerKilled;
 
+    public delegate void Win();
+    public event Win OnWin;
+
     private Rigidbody2D rb2D;
     private bool jumping = false;
 
@@ -49,14 +52,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void MoveForward()
+    public void BossKilled()
     {
-        //GroundMover.StartMoving();
-    }
-
-    public void Stop()
-    {
-        //GroundMover.StopMoving();
+        Debug.Log("Congratulations, you win!");
+        if (OnWin != null)
+        {
+            OnWin();
+        }
     }
 
     public void Jump()
