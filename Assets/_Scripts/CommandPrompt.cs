@@ -10,7 +10,6 @@ public class CommandPrompt : MonoBehaviour
 
 	public Transform cmdContent;
 	public List<string> availableCommands = new List<string>();
-	private InputField currentPrompt;
 
 	private static string HELP_MESSAGE = "Ayuda";
 	private static string UNK_MESSAGE = "Comando no identificado";
@@ -18,10 +17,7 @@ public class CommandPrompt : MonoBehaviour
 
 	public void PromptEntry()
 	{
-		GameObject go = Instantiate (promptPrefab, cmdContent) as GameObject;
-		currentPrompt = go.GetComponentInChildren<InputField>();
-		currentPrompt.Select();
-		currentPrompt.ActivateInputField();
+		Instantiate (promptPrefab, cmdContent);
 	}
 
 	public void ExecuteCommand(string command)

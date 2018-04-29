@@ -6,10 +6,17 @@ using UnityEngine.UI;
 public class PromptLine : MonoBehaviour 
 {
 	[SerializeField] Text bashText;
-	CommandPrompt cmd;
-	void Start()
+	private CommandPrompt cmd;
+	private InputField field;
+	void Awake()
 	{
 		cmd = FindObjectOfType<CommandPrompt>();
+		field = GetComponentInChildren<InputField>();
+	}
+	void Start()
+	{
+		field.Select();
+		field.ActivateInputField();
 	}
 
 	public void Init(string bashText)
